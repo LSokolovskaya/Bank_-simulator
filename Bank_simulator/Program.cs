@@ -1,23 +1,81 @@
 ﻿using Bank_simulator.BankModels;
-
+using System;
 namespace MyApp // Note: actual namespace depends on the project name.
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            List<ExchangeRate> rates = new List<ExchangeRate>();   // ExchangeRate[] rates = { ex1, ex2 };  
-            Currency currency = new Currency((int)CurrencyCodes.USD, "Доллар США", "$", CurrencyCodes.USD.ToString());
-            System.Console.WriteLine((CurrencyCodes)currency.Code == CurrencyCodes.USD);
-            rates.Add(new ExchangeRate((int)CurrencyCodes.BYN, (int)CurrencyCodes.USD, 2.67));
-            rates.Add(new ExchangeRate((int)CurrencyCodes.BYN, (int)CurrencyCodes.EURO, 2.83));
-            rates.Add(new ExchangeRate((int)CurrencyCodes.BYN, (int)CurrencyCodes.GBP, 2.91));
-            rates.Add(new ExchangeRate((int)CurrencyCodes.USD, (int)CurrencyCodes.EURO, 0.97));
-            rates.Add(new ExchangeRate((int)CurrencyCodes.USD, (int)CurrencyCodes.GBP, 0.9));
-            rates.Add(new ExchangeRate((int)CurrencyCodes.USD, (int)CurrencyCodes.PLN, 5));
-            rates.Add(new ExchangeRate((int)CurrencyCodes.BYN, (int)CurrencyCodes.PLN, 0.4));
-            System.Console.WriteLine(rates.Count);
-            System.Console.WriteLine(rates.FirstOrDefault(x => x.CurrencyFrom == (int)CurrencyCodes.PLN && x.CurrencyTo == (int)CurrencyCodes.USD));
+            // Card card = new Card("1");
+            // card.PushMoney(100);
+            // card.TryGetMoney(100);       
+            // System.Console.WriteLine((int)WalletTypes.Crypto);
+            // System.Console.WriteLine((int)WalletTypes.Leather);
+            // System.Console.WriteLine((WalletTypes)1);
+            // IPayments wallet = new LeatherWallet(10);
+            // wallet.PushMoney(1233);
+            // Shop shop = new Shop();
+            // shop.PayCash(wallet);
+
+            // лами while, foreach
+            // System.Console.WriteLine("введите строку");
+            // string? text = Console.ReadLine();
+            // TryParse(text, out int result);
+            // System.Console.WriteLine(result);
+            Method(new int[] {  2, 3 }, 2);
+
+        }
+        static bool TryParse(string? text, out int result)
+        {
+
+            try
+            {
+                result = int.Parse(text);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                result = 0;
+                System.Console.WriteLine(ex);
+                return false;
+            }
+        }
+
+        static void Method(int[] array, int length)
+        {
+            try
+            {
+                double sum = 0;
+                for (int i = 0; i < length; i++)
+                {
+                    sum += 1 / (double)array[i];
+                }
+                if (sum < 1)
+                {
+                    throw new Exception("наше число меньше единицы");
+                }
+                System.Console.WriteLine(sum);
+            }
+            catch (IndexOutOfRangeException)
+            {
+                System.Console.WriteLine("Uncorrcect index");
+            }
+            catch (NullReferenceException)
+            {
+                System.Console.WriteLine("NullReference");
+            }
+            catch (DivideByZeroException)
+            {
+                System.Console.WriteLine("Ne deli na nol");
+            }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                System.Console.WriteLine("финал");
+            }
         }
     }
 }
