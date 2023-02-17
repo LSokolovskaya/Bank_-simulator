@@ -12,7 +12,8 @@ namespace MyApp // Note: actual namespace depends on the project name.
             // System.Console.WriteLine((int)WalletTypes.Crypto);
             // System.Console.WriteLine((int)WalletTypes.Leather);
             // System.Console.WriteLine((WalletTypes)1);
-            // IPayments wallet = new LeatherWallet(10);
+            // IPayments wallet = new LeatherWallet(10)
+            
             // wallet.PushMoney(1233);
             // Shop shop = new Shop();
             // shop.PayCash(wallet);
@@ -22,8 +23,8 @@ namespace MyApp // Note: actual namespace depends on the project name.
             // string? text = Console.ReadLine();
             // TryParse(text, out int result);
             // System.Console.WriteLine(result);
-            Method(new int[] {  2, 3 }, 2);
 
+            Method(new int[] {  2, 3 }, 2);
         }
         static bool TryParse(string? text, out int result)
         {
